@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zjn-FZ-J5k">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="rHA-Es-dyF">
+            <objects>
+                <navigationController id="zjn-FZ-J5k" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YeU-qq-maH">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ATA-5y-B82"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SPf-lI-X6l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-792" y="4"/>
+        </scene>
+        <!--GitHub Repositories-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="RepoListViewController" id="BYZ-38-t0r" customClass="RepoListViewController" customModule="GitHubRepoExplorer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="Search GitHub Repo" translatesAutoresizingMaskIntoConstraints="NO" id="seV-0D-7Ra">
+                                <rect key="frame" x="20" y="123" width="353" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="2Fa-pW-FQ2"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="B0B-Eh-pua"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="FhZ-Jy-c4I">
+                                <rect key="frame" x="20" y="187" width="353" height="611"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FhZ-Jy-c4I" secondAttribute="trailing" constant="20" id="4S0-I6-b5Y"/>
+                            <constraint firstItem="FhZ-Jy-c4I" firstAttribute="top" secondItem="seV-0D-7Ra" secondAttribute="bottom" constant="20" id="Cik-oa-zOC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="FhZ-Jy-c4I" secondAttribute="bottom" constant="20" id="JTO-Ys-3gQ"/>
+                            <constraint firstItem="seV-0D-7Ra" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="WI9-AW-8RU"/>
+                            <constraint firstItem="FhZ-Jy-c4I" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="WP7-lj-XyX"/>
+                            <constraint firstItem="seV-0D-7Ra" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-20" id="f8a-Wc-8Xb"/>
+                            <constraint firstItem="seV-0D-7Ra" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="yPW-h4-Olx"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="GitHub Repositories" id="5L0-FH-0PW"/>
+                    <connections>
+                        <outlet property="searchBar" destination="seV-0D-7Ra" id="C1r-ns-BnD"/>
+                        <outlet property="tableView" destination="FhZ-Jy-c4I" id="zgp-Py-LaS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="24" y="4"/>
+        </scene>
+        <!--Repo Detail View Controller-->
+        <scene sceneID="mBq-l0-YXv">
+            <objects>
+                <viewController storyboardIdentifier="RepoDetailViewController" id="Gze-Xx-biD" customClass="RepoDetailViewController" customModule="GitHubRepoExplorer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EzN-zr-KTI">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zmy-rT-QaC">
+                                <rect key="frame" x="20" y="185" width="353" height="613"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repo:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="1" translatesAutoresizingMaskIntoConstraints="NO" id="tb5-FE-oWU">
+                                <rect key="frame" x="20" y="79" width="353" height="36"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Owner:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="58j-jX-SMP">
+                                <rect key="frame" x="20" y="115" width="353" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desc:" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1FJ-Jg-oz9">
+                                <rect key="frame" x="20" y="148" width="353" height="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9E1-ss-LnM">
+                                <rect key="frame" x="301.33333333333331" y="49" width="81.666666666666686" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Git Link"/>
+                                <connections>
+                                    <action selector="openWebView:" destination="Gze-Xx-biD" eventType="touchUpInside" id="lXb-pG-lM4"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Yqh-yq-rmV"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Yqh-yq-rmV" firstAttribute="bottom" secondItem="Zmy-rT-QaC" secondAttribute="bottom" constant="20" id="65u-JG-uUD"/>
+                            <constraint firstItem="58j-jX-SMP" firstAttribute="leading" secondItem="Yqh-yq-rmV" secondAttribute="leading" constant="20" id="8Ek-GO-IVj"/>
+                            <constraint firstItem="1FJ-Jg-oz9" firstAttribute="top" secondItem="tb5-FE-oWU" secondAttribute="bottom" constant="33" id="CHD-5q-6WP"/>
+                            <constraint firstItem="Yqh-yq-rmV" firstAttribute="trailing" secondItem="tb5-FE-oWU" secondAttribute="trailing" constant="20" id="CVK-c4-KeD"/>
+                            <constraint firstItem="Yqh-yq-rmV" firstAttribute="trailing" secondItem="9E1-ss-LnM" secondAttribute="trailing" constant="10" id="Czh-DI-aG3"/>
+                            <constraint firstItem="Zmy-rT-QaC" firstAttribute="top" secondItem="1FJ-Jg-oz9" secondAttribute="bottom" constant="20" id="QFK-uh-GJj"/>
+                            <constraint firstItem="1FJ-Jg-oz9" firstAttribute="leading" secondItem="Yqh-yq-rmV" secondAttribute="leading" constant="20" id="VzN-EE-jJK"/>
+                            <constraint firstItem="Yqh-yq-rmV" firstAttribute="trailing" secondItem="1FJ-Jg-oz9" secondAttribute="trailing" constant="20" id="YWK-yK-ca7"/>
+                            <constraint firstItem="tb5-FE-oWU" firstAttribute="leading" secondItem="Yqh-yq-rmV" secondAttribute="leading" constant="20" id="Ysl-rl-7tG"/>
+                            <constraint firstItem="Yqh-yq-rmV" firstAttribute="trailing" secondItem="58j-jX-SMP" secondAttribute="trailing" constant="20" id="b3A-xz-dz9"/>
+                            <constraint firstItem="Zmy-rT-QaC" firstAttribute="leading" secondItem="Yqh-yq-rmV" secondAttribute="leading" constant="20" id="gO7-TQ-B7f"/>
+                            <constraint firstItem="Yqh-yq-rmV" firstAttribute="trailing" secondItem="Zmy-rT-QaC" secondAttribute="trailing" constant="20" id="lmK-6d-RUo"/>
+                            <constraint firstItem="58j-jX-SMP" firstAttribute="top" secondItem="tb5-FE-oWU" secondAttribute="bottom" id="pLK-10-xUN"/>
+                            <constraint firstItem="9E1-ss-LnM" firstAttribute="top" secondItem="Yqh-yq-rmV" secondAttribute="top" constant="-10" id="ur3-yL-IMX"/>
+                            <constraint firstItem="tb5-FE-oWU" firstAttribute="top" secondItem="Yqh-yq-rmV" secondAttribute="top" constant="20" id="xhv-FT-fK3"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="1FJ-Jg-oz9" id="ZJm-Oc-MZ9"/>
+                        <outlet property="nameLabel" destination="tb5-FE-oWU" id="Fed-6k-fgk"/>
+                        <outlet property="ownerLabel" destination="58j-jX-SMP" id="ylu-eN-xOk"/>
+                        <outlet property="webViewContainer" destination="Zmy-rT-QaC" id="vbM-Tg-nXC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SMd-0J-bpI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="703.05343511450383" y="3.5211267605633805"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
